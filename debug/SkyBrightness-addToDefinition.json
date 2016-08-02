@@ -1,0 +1,303 @@
+{
+    "layers": [
+        {
+            "adminLayerInfo": {
+                "geometryField": {
+                    "name": "location",
+                    "srid": 4326
+                }
+            },
+            "allowGeometryUpdates": true,
+            "capabilities": "Query,Editing,Create,Update,Delete",
+            "copyrightText": "",
+            "defaultVisibility": true,
+            "description": "",
+            "displayField": "",
+            "drawingInfo": {
+                "labelingInfo": null,
+                "renderer": {
+                    "description": "Survey Data Locations",
+                    "label": "SkyBrightness",
+                    "symbol": {
+                        "angle": 0,
+                        "color": [
+                            255,
+                            0,
+                            0,
+                            255
+                        ],
+                        "outline": {
+                            "color": [
+                                255,
+                                255,
+                                0,
+                                255
+                            ],
+                            "width": 1
+                        },
+                        "size": 8,
+                        "style": "esriSMSCircle",
+                        "type": "esriSMS",
+                        "xoffset": 0,
+                        "yoffset": 0
+                    },
+                    "type": "simple"
+                },
+                "transparency": 0
+            },
+            "extent": {
+                "spatialReference": {
+                    "wkid": 4326
+                },
+                "type": "extent",
+                "xmax": 180,
+                "xmin": -180,
+                "ymax": 90,
+                "ymin": -90
+            },
+            "fields": [
+                {
+                    "alias": "ObjectID",
+                    "defaultValue": null,
+                    "domain": null,
+                    "editable": false,
+                    "name": "objectid",
+                    "nullable": false,
+                    "type": "esriFieldTypeOID"
+                },
+                {
+                    "alias": "GlobalID",
+                    "defaultValue": null,
+                    "domain": null,
+                    "editable": false,
+                    "length": 38,
+                    "name": "globalid",
+                    "nullable": false,
+                    "sqlType": "sqlTypeGUID",
+                    "type": "esriFieldTypeGlobalID"
+                },
+                {
+                    "alias": "start_date",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "start_date",
+                    "nullable": true,
+                    "type": "esriFieldTypeDate"
+                },
+                {
+                    "alias": "end_date",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "end_date",
+                    "nullable": true,
+                    "type": "esriFieldTypeDate"
+                },
+                {
+                    "alias": "username",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "username",
+                    "nullable": true,
+                    "type": "esriFieldTypeString"
+                },
+                {
+                    "alias": "Meter Operator",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "meter_operator",
+                    "nullable": true,
+                    "type": "esriFieldTypeString"
+                },
+                {
+                    "alias": "Meter Type",
+                    "domain": {
+                        "codedValues": [
+                            {
+                                "code": "sky_quality_meter",
+                                "name": "Sky Quality Meter"
+                            },
+                            {
+                                "code": "iphone",
+                                "name": "iPhone"
+                            }
+                        ],
+                        "name": "cvd_meter_type",
+                        "type": "codedValue"
+                    },
+                    "editable": true,
+                    "length": 17,
+                    "name": "meter_type",
+                    "nullable": true,
+                    "type": "esriFieldTypeString"
+                },
+                {
+                    "alias": "Meter ID",
+                    "domain": {
+                        "codedValues": [
+                            {
+                                "code": "Meter1",
+                                "name": "Meter1"
+                            },
+                            {
+                                "code": "Meter2",
+                                "name": "Meter2"
+                            },
+                            {
+                                "code": "Meter3",
+                                "name": "Meter3"
+                            },
+                            {
+                                "code": "Meter4",
+                                "name": "Meter4"
+                            },
+                            {
+                                "code": "Meter5",
+                                "name": "Meter5"
+                            }
+                        ],
+                        "name": "cvd_meter_id",
+                        "type": "codedValue"
+                    },
+                    "editable": true,
+                    "length": 6,
+                    "name": "meter_id",
+                    "nullable": true,
+                    "type": "esriFieldTypeString"
+                },
+                {
+                    "alias": "Observation Site",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "observation_site",
+                    "nullable": true,
+                    "type": "esriFieldTypeString"
+                },
+                {
+                    "alias": "Number of Readings",
+                    "domain": {
+                        "codedValues": [
+                            {
+                                "code": "3",
+                                "name": "3"
+                            },
+                            {
+                                "code": "4",
+                                "name": "4"
+                            },
+                            {
+                                "code": "5",
+                                "name": "5"
+                            }
+                        ],
+                        "name": "cvd_number_of_readings",
+                        "type": "codedValue"
+                    },
+                    "editable": true,
+                    "length": 1,
+                    "name": "number_of_readings",
+                    "nullable": true,
+                    "type": "esriFieldTypeInteger"
+                },
+                {
+                    "alias": "First Meter Reading",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "meter_reading_1",
+                    "nullable": true,
+                    "type": "esriFieldTypeDouble"
+                },
+                {
+                    "alias": "Second Meter Reading",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "meter_reading_2",
+                    "nullable": true,
+                    "type": "esriFieldTypeDouble"
+                },
+                {
+                    "alias": "Third Meter Reading",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "meter_reading_3",
+                    "nullable": true,
+                    "type": "esriFieldTypeDouble"
+                },
+                {
+                    "alias": "Fourth Meter Reading",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "meter_reading_4",
+                    "nullable": true,
+                    "type": "esriFieldTypeDouble"
+                },
+                {
+                    "alias": "Fifth Meter Reading",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "meter_reading_5",
+                    "nullable": true,
+                    "type": "esriFieldTypeDouble"
+                },
+                {
+                    "alias": "average_reading",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "average_reading",
+                    "nullable": true,
+                    "type": "esriFieldTypeDouble"
+                },
+                {
+                    "alias": "Comments",
+                    "domain": null,
+                    "editable": true,
+                    "length": 255,
+                    "name": "comments",
+                    "nullable": true,
+                    "type": "esriFieldTypeString"
+                }
+            ],
+            "geometryType": "esriGeometryPoint",
+            "globalIdField": "globalid",
+            "hasAttachments": false,
+            "hasM": false,
+            "hasStaticData": false,
+            "hasZ": false,
+            "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+            "id": 0,
+            "isDataVersioned": false,
+            "maxRecordCount": 1000,
+            "maxScale": 0,
+            "minScale": 0,
+            "name": "SkyBrightness",
+            "objectIdField": "objectid",
+            "relationships": [
+            ],
+            "supportedQueryFormats": "JSON",
+            "supportsAdvancedQueries": true,
+            "supportsRollbackOnFailureParameter": true,
+            "supportsStatistics": true,
+            "templates": [
+            ],
+            "timeInfo": {
+                "endTimeField": "end_date",
+                "startTimeField": "start_date"
+            },
+            "type": "Feature Layer",
+            "typeIdField": "",
+            "types": [
+            ]
+        }
+    ],
+    "relationshipsDefinition": null
+}

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:esri="http://esri.com/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>SkyBrightness Form</h:title>
+    <model>
+      <instance>
+        <SkyBrightness id="SkyBrightness">
+          <start_date/>
+          <end_date/>
+          <username/>
+          <meter_operator/>
+          <meter_type/>
+          <meter_id/>
+          <observation_site/>
+          <location/>
+          <number_of_readings/>
+          <meter_reading_1/>
+          <meter_reading_2/>
+          <meter_reading_3/>
+          <meter_reading_4/>
+          <meter_reading_5/>
+          <average_reading/>
+          <comments/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </SkyBrightness>
+      </instance>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/SkyBrightness/start_date" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/SkyBrightness/end_date" required="true()" type="dateTime"/>
+      <bind jr:preload="property" jr:preloadParams="username" nodeset="/SkyBrightness/username" required="true()" type="string"/>
+      <bind nodeset="/SkyBrightness/meter_operator" type="string"/>
+      <bind nodeset="/SkyBrightness/meter_type" required="true()" type="select1"/>
+      <bind nodeset="/SkyBrightness/meter_id" relevant="selected( /SkyBrightness/meter_type , 'sky_quality_meter')" required="true()" type="select1"/>
+      <bind nodeset="/SkyBrightness/observation_site" required="true()" type="string"/>
+      <bind nodeset="/SkyBrightness/location" required="true()" type="geopoint"/>
+      <bind esri:fieldType="esriFieldTypeInteger" nodeset="/SkyBrightness/number_of_readings" required="true()" type="select1"/>
+      <bind constraint=". &gt;= 8.0 and . &lt;= 22.0" esri:fieldType="esriFieldTypeDouble" jr:constraintMsg="This value must be between 8.0 and 22.0" nodeset="/SkyBrightness/meter_reading_1" required="true()" type="decimal"/>
+      <bind constraint=". &gt;= 8.0 and . &lt;= 22.0" esri:fieldType="esriFieldTypeDouble" jr:constraintMsg="This value must be between 8.0 and 22.0" nodeset="/SkyBrightness/meter_reading_2" required="true()" type="decimal"/>
+      <bind constraint=". &gt;= 8.0 and . &lt;= 22.0" esri:fieldType="esriFieldTypeDouble" jr:constraintMsg="This value must be between 8.0 and 22.0" nodeset="/SkyBrightness/meter_reading_3" required="true()" type="decimal"/>
+      <bind constraint=". &gt;= 8.0 and . &lt;= 22.0" esri:fieldType="esriFieldTypeDouble" jr:constraintMsg="This value must be between 8.0 and 22.0" nodeset="/SkyBrightness/meter_reading_4" relevant="selected( /SkyBrightness/number_of_readings , '4') or selected( /SkyBrightness/number_of_readings , '5')" required="true()" type="decimal"/>
+      <bind constraint=". &gt;= 8.0 and . &lt;= 22.0" esri:fieldType="esriFieldTypeDouble" jr:constraintMsg="This value must be between 8.0 and 22.0" nodeset="/SkyBrightness/meter_reading_5" relevant="selected( /SkyBrightness/number_of_readings , '5')" required="true()" type="decimal"/>
+      <bind calculate="( /SkyBrightness/meter_reading_1  +  /SkyBrightness/meter_reading_2  +  /SkyBrightness/meter_reading_3  +  /SkyBrightness/meter_reading_4  +  /SkyBrightness/meter_reading_5 ) div  /SkyBrightness/number_of_readings " esri:fieldType="esriFieldTypeDouble" nodeset="/SkyBrightness/average_reading" type="string"/>
+      <bind nodeset="/SkyBrightness/comments" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/SkyBrightness/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/SkyBrightness/meter_operator">
+      <label>Meter Operator</label>
+      <hint>Name of person taking the reading. Leave empty if you're the one who logged in.</hint>
+    </input>
+    <select1 ref="/SkyBrightness/meter_type">
+      <label>Meter Type</label>
+      <hint>Are you using a Sky Quality Meter or an iPhone?</hint>
+      <item>
+        <label>Sky Quality Meter</label>
+        <value>sky_quality_meter</value>
+      </item>
+      <item>
+        <label>iPhone</label>
+        <value>iphone</value>
+      </item>
+    </select1>
+    <select1 appearance="minimal" ref="/SkyBrightness/meter_id">
+      <label>Meter ID</label>
+      <hint>Enter the Meter ID printed on the Sky Quality Meter</hint>
+      <item>
+        <label>Meter1</label>
+        <value>Meter1</value>
+      </item>
+      <item>
+        <label>Meter2</label>
+        <value>Meter2</value>
+      </item>
+      <item>
+        <label>Meter3</label>
+        <value>Meter3</value>
+      </item>
+      <item>
+        <label>Meter4</label>
+        <value>Meter4</value>
+      </item>
+      <item>
+        <label>Meter5</label>
+        <value>Meter5</value>
+      </item>
+    </select1>
+    <input ref="/SkyBrightness/observation_site">
+      <label>Observation Site</label>
+      <hint>Name of the place at which you are taking the reading</hint>
+    </input>
+    <input ref="/SkyBrightness/location">
+      <label>Location</label>
+      <hint>Place the pin on the map where you are taking the reading.</hint>
+    </input>
+    <select1 ref="/SkyBrightness/number_of_readings">
+      <label>Number of Readings</label>
+      <hint>How many readings are you going to take?</hint>
+      <item>
+        <label>3</label>
+        <value>3</value>
+      </item>
+      <item>
+        <label>4</label>
+        <value>4</value>
+      </item>
+      <item>
+        <label>5</label>
+        <value>5</value>
+      </item>
+    </select1>
+    <input ref="/SkyBrightness/meter_reading_1">
+      <label>First Meter Reading</label>
+      <hint>Value displayed by the meter (must be between 8.0 and 22.0)</hint>
+    </input>
+    <input ref="/SkyBrightness/meter_reading_2">
+      <label>Second Meter Reading</label>
+      <hint>Value displayed by the meter (must be between 8.0 and 22.0)</hint>
+    </input>
+    <input ref="/SkyBrightness/meter_reading_3">
+      <label>Third Meter Reading</label>
+      <hint>Value displayed by the meter (must be between 8.0 and 22.0)</hint>
+    </input>
+    <input ref="/SkyBrightness/meter_reading_4">
+      <label>Fourth Meter Reading</label>
+      <hint>Value displayed by the meter (must be between 8.0 and 22.0)</hint>
+    </input>
+    <input ref="/SkyBrightness/meter_reading_5">
+      <label>Fifth Meter Reading</label>
+      <hint>Value displayed by the meter (must be between 8.0 and 22.0)</hint>
+    </input>
+    <input appearance="multiline" ref="/SkyBrightness/comments">
+      <label>Comments</label>
+    </input>
+  </h:body>
+</h:html>

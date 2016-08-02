@@ -1,0 +1,36 @@
+{
+    "displayInfo": {
+        "map": {
+            "coordinateFormat": "dd",
+            "defaultType": {
+                "name": "OpenStreetMap"
+            },
+            "home": {
+                "latitude": 44.461027000000001,
+                "longitude": -93.154666000000006,
+                "zoomLevel": 17
+            },
+            "preview": {
+                "coordinateFormat": "d",
+                "zoomLevel": 17
+            }
+        },
+        "style": {
+            "backgroundColor": "#e8e8e8",
+            "backgroundImage": null,
+            "inputBackgroundColor": null,
+            "inputTextColor": "#000000",
+            "textColor": "#000000",
+            "toolbarBackgroundColor": "#0b5091",
+            "toolbarTextColor": null
+        }
+    },
+    "imagesInfo": {
+        "captureResolution": 640
+    },
+    "serviceInfo": {
+        "itemId": "2b73a56bbf694a0d8400a6cc6983066b",
+        "type": "Feature Service",
+        "url": "http://services.arcgis.com/ULBqC49IEeIR01GF/arcgis/rest/services/service_2cd1f079d58b4184b0c8b6d538e26918/FeatureServer"
+    }
+}
